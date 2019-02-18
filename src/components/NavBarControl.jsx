@@ -3,7 +3,7 @@ import NavList from './NavList';
 import Search from './Search';
 import NewTweetButton from './NewTweetButton';
 import NewTweetModal from './NewTweetModal';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const navbarStyles = {
   display: 'flex',
@@ -23,7 +23,7 @@ const rightStyles = {
 class NavBarControl extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state ={
       modalVisibleOnPage: false
     };
@@ -32,13 +32,12 @@ class NavBarControl extends React.Component {
   }
 
   handleNewTweet(){
-    this.setState({modalVisibleOnPage: true})
+    this.setState({modalVisibleOnPage: true});
   }
 
   handleHideModal(){
-    console.log('here')
-    this.setState({modalVisibleOnPage: false})
-  }
+    this.setState({modalVisibleOnPage: false});
+  };
 
   render(){
     let currentlyVisibleContent = null;
@@ -47,7 +46,7 @@ class NavBarControl extends React.Component {
         onHideModal={this.handleHideModal} />;
     } else {
       currentlyVisibleContent = <NewTweetButton onNewTweetConfirmation={this.handleNewTweet} />
-    }
+    };
     return (
       <div style={navbarStyles}>
         <NavList/>
@@ -62,6 +61,6 @@ class NavBarControl extends React.Component {
 
 NavBarControl.propTypes = {
   onNewTweetCreation: PropTypes.func
-}
+};
 
 export default NavBarControl;

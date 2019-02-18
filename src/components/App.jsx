@@ -13,10 +13,10 @@ const bodyStyle = {
 class App extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       masterTweetList: []
-    }
+    };
     this.handleAddingNewTweetToList = this.handleAddingNewTweetToList.bind(this);
   }
   handleAddingNewTweetToList(newTweet){
@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-         <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} />}
+          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} />}
         </div>
         <div style={bodyStyle}>
           <Bio/>

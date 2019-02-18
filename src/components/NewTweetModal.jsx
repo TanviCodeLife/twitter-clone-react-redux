@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 const modal = {
   position: 'fixed',
@@ -8,7 +9,7 @@ const modal = {
   width: '100%',
   height: '100%',
   background: 'rgba(0, 0, 0, 0.6)'
-}
+};
 
 const modalMain = {
   position: 'fixed',
@@ -18,22 +19,14 @@ const modalMain = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%,-50%)'
-}
-
-const displayBlock = {
-  display: 'block'
-}
-
-const displayNone = {
-  display: 'none'
-}
+};
 
 function NewTweetModal(props){
   let _tweet = null;
 
   function handleNewTweetFormSubmission(event){
     event.preventDefault();
-    props.onNewTweetCreation({tweet: _tweet.value});
+    props.onNewTweetCreation({tweet: _tweet.value,  id: v4(), name: 'Paige Williams', username: 'p__williams', profilePic: `https://avatars3.githubusercontent.com/u/26071756?s=460&v=4`});
     props.onHideModal();
   }
 
@@ -41,12 +34,12 @@ function NewTweetModal(props){
     <div style={modal}>
       <section style={modalMain}>
         <form onSubmit={handleNewTweetFormSubmission}>
-        <input
-          type='text'
-          id='tweet'
-          placeholder='hi!'
-          ref={(input) => {_tweet = input;}}/>
-        <button type='submit'>Tweet</button>
+          <input
+            type='text'
+            id='tweet'
+            placeholder='hi!'
+            ref={(input) => {_tweet = input;}}/>
+          <button type='submit'>Tweet</button>
         </form>
       </section>
     </div>
