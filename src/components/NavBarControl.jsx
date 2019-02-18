@@ -1,7 +1,8 @@
 import React from 'react';
 import NavList from './NavList';
 import Search from './Search';
-import NewTweet from './NewTweet';
+import NewTweetButton from './NewTweetButton';
+import NewTweetModal from './NewTweetModal';
 
 const navbarStyles = {
   display: 'flex',
@@ -38,7 +39,7 @@ class NavBarControl extends React.Component {
     if(this.state.modalVisibleOnPage){
       currentlyVisibleContent = <NewTweetModal />;
     } else {
-      currentlyVisibleContent = <NewTweet />
+      currentlyVisibleContent = <NewTweetButton onNewTweetConfirmation={this.handleNewTweet} />
     }
     return (
       <div style={navbarStyles}>

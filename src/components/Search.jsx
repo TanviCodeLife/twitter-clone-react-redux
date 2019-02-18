@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Search(props){
+  let _search = null;
   const searchStyles = {
     border: '2px solid #4682B4',
     color: '#696969',
@@ -14,12 +15,12 @@ function Search(props){
     marginRight: '5px'
   };
 
-  function handleNewTweetFormSubmission(event){
+  function handleSearchFormSubmission(event){
     event.preventDefault();
   }
   return(
     <div>
-      <form onSubmit={handleNewTweetFormSubmission}>
+      <form onSubmit={handleSearchFormSubmission}>
       <input
         type='text'
         id='search'
