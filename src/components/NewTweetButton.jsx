@@ -22,7 +22,7 @@ function NewTweetButton(props){
   );
 }
 
-NewTweetButton.propTypes ={
+NewTweetButton.propTypes = {
   onNewTweetConfirmation: PropTypes.func
 }
 

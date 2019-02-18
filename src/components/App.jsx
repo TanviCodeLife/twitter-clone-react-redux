@@ -19,11 +19,15 @@ class App extends React.Component {
     };
     this.handleAddingNewTweetToList = this.handleAddingNewTweetToList.bind(this);
   }
+
   handleAddingNewTweetToList(newTweet){
     let newMasterTweetList = this.state.masterTweetList.slice();
     newMasterTweetList.push(newTweet);
     this.setState({masterTweetList: newMasterTweetList});
   }
+
+  
+
   render() {
     return (
       <div>

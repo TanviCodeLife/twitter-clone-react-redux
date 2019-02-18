@@ -10,7 +10,6 @@ const tweetListStyles = {
 };
 
 function TweetList(props){
-  console.log(props.tweetList)
   return(
     <div style={tweetListStyles}>
       {props.tweetList.map((tweet) =>
@@ -18,7 +17,6 @@ function TweetList(props){
           name = {tweet.name}
           username = {tweet.username}
           profilePic = {tweet.profilePic}
-          likes = {tweet.likes}
           key={tweet.id}/>
       )}
     </div>
