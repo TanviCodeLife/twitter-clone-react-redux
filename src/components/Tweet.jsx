@@ -32,15 +32,14 @@ class Tweet extends React.Component {
 
   constructor(props){
     super(props);
-    // this.state ={
-    //   updateLikeButton: false
-    // }
+    this.state ={
+      updateLikeButton: false
+    }
     this.handleLikeButton = this.handleLikeButton.bind(this);
   }
 
-  handleLikeButton(event){
-    event.preventDefault();
-    console.log("inside tweet-like")
+  handleLikeButton(){
+    props.onLikeButtonClick();
   }
 
 render(){
@@ -55,6 +54,7 @@ render(){
         <p>{this.props.tweet}</p>
       </div>
       <LikeButton onLikeButtonClick={this.handleLikeButton}/>
+      <p>{this.props.likes}</p>
     </div>
   );
 }

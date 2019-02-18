@@ -18,6 +18,7 @@ class App extends React.Component {
       masterTweetList: []
     };
     this.handleAddingNewTweetToList = this.handleAddingNewTweetToList.bind(this);
+    this.handleAddingAlikeToATweet = this.handleAddingAlikeToATweet.bind(this);
   }
 
   handleAddingNewTweetToList(newTweet){
@@ -26,7 +27,10 @@ class App extends React.Component {
     this.setState({masterTweetList: newMasterTweetList});
   }
 
-  
+  handleAddingAlikeToATweet(tweet){
+    console.log(tweet)
+  }
+
 
   render() {
     return (
@@ -36,7 +40,7 @@ class App extends React.Component {
         </div>
         <div style={bodyStyle}>
           <Bio/>
-          <TweetList tweetList={this.state.masterTweetList}/>
+          <TweetList onLikeButtonClick={this.handleAddingAlikeToATweet} tweetList={this.state.masterTweetList}/>
           <RecommendedList/>
         </div>
       </div>
