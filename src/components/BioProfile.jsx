@@ -73,8 +73,8 @@ function BioProfile(props){
       <div style={backgroundColor}>
       </div>
       <div style={picAndTitle}>
-        <img style={imgStyles }src="https://cdn2.iconfinder.com/data/icons/rcons-user/32/male-circle-512.png"></img>
-        <h3 style={titleStyles}>Ben Kirby</h3>
+        <img style={imgStyles }src="https://avatars3.githubusercontent.com/u/26071756?s=460&v=4"></img>
+        <h3 style={titleStyles}>Paige Williams</h3>
       </div>
       <div style={centerContent}>
         {profileButtons.map((button, index) =>
