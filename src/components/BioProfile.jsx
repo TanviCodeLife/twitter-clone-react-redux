@@ -35,7 +35,6 @@ function BioProfile(props){
     padding: '5px 10px',
     textAlign: 'center',
     textDecoration: 'none',
-    // display: 'inline-block',
     border: 'none',
     fontSize: '11px',
     marginLeft: '5px',

@@ -26,7 +26,7 @@ function NewTweetModal(props){
 
   function handleNewTweetFormSubmission(event){
     event.preventDefault();
-    props.onNewTweetCreation({tweet: _tweet.value,  id: v4(), name: 'Paige Williams', username: 'p__williams', profilePic: `https://avatars3.githubusercontent.com/u/26071756?s=460&v=4`});
+    props.onNewTweetCreation({tweet: _tweet.value,  id: v4(), name: 'Paige Williams', username: 'p__williams', profilePic: `https://avatars3.githubusercontent.com/u/26071756?s=460&v=4`, likes: 0});
     props.onHideModal();
   }
 

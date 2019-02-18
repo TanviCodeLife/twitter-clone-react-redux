@@ -39,6 +39,7 @@ function Tweet (props){
         <p><strong>{props.name}</strong> @{props.username}</p>
         <p>{props.tweet}</p>
         </div>
+        <p>Likes: {props.likes}</p>
       </div>
     </div>
   );

@@ -18,6 +18,7 @@ function TweetList(props){
           name = {tweet.name}
           username = {tweet.username}
           profilePic = {tweet.profilePic}
+          likes = {tweet.likes}
           key={tweet.id}/>
       )}
     </div>
