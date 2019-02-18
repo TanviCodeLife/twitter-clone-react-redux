@@ -13,10 +13,21 @@ function Search(props){
     borderRadius: '25rem',
     marginRight: '5px'
   };
+
+  function handleNewTweetFormSubmission(event){
+    event.preventDefault();
+  }
   return(
     <div>
-      <input style={searchStyles} placeholder='Search'></input>
-    </div>
+      <form onSubmit={handleNewTweetFormSubmission}>
+      <input
+        type='text'
+        id='search'
+        style={searchStyles}
+        placeholder='Search'
+        ref={(input) => {_search = input;}}/>
+      </form>
+  </div>
   );
 }
 

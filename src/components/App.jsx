@@ -1,6 +1,6 @@
 import React from 'react';
 import Bio from './Bio';
-import NavBar from './NavBar';
+import NavBarControl from './NavBarControl';
 import TweetList from './TweetList';
 import RecommendedList from './RecommendedList';
 
@@ -12,7 +12,7 @@ function App(props){
   return (
     <div>
       <div>
-        <NavBar/>
+        <NavBarControl/>
       </div>
       <div style={bodyStyle}>
         <Bio/>
