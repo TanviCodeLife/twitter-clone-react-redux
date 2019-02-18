@@ -34,6 +34,7 @@ function NewTweetModal(props){
   function handleNewTweetFormSubmission(event){
     event.preventDefault();
     props.onNewTweetCreation({tweet: _tweet.value});
+    props.onHideModal();
   }
 
   return(
@@ -53,6 +54,8 @@ function NewTweetModal(props){
 }
 
 NewTweetModal.propTypes = {
-  onNewTweetCreation: PropTypes.func
+  onNewTweetCreation: PropTypes.func,
+  onHideModal: PropTypes.func
+
 }
 export default NewTweetModal;
