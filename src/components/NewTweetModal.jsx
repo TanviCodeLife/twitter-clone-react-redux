@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const modal = {
   position: 'fixed',
@@ -27,11 +28,14 @@ const displayNone = {
   display: 'none'
 }
 
-function handleNewTweetFormSubmission(event){
-  event.preventDefault();
-}
+function NewTweetModal(props){
+  let _tweet = null;
 
-function NewTweetModal(){
+  function handleNewTweetFormSubmission(event){
+    event.preventDefault();
+    props.onNewTweetCreation({tweet: _tweet.value});
+  }
+
   return(
     <div style={modal}>
       <section style={modalMain}>
@@ -46,5 +50,9 @@ function NewTweetModal(){
       </section>
     </div>
   )
+}
+
+NewTweetModal.propTypes = {
+  onNewTweetCreation: PropTypes.func
 }
 export default NewTweetModal;
