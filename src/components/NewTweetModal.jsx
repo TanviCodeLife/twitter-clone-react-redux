@@ -49,6 +49,5 @@ function NewTweetModal(props){
 NewTweetModal.propTypes = {
   onNewTweetCreation: PropTypes.func,
   onHideModal: PropTypes.func
-
 }
 export default NewTweetModal;

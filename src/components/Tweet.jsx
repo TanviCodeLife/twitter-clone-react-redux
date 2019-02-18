@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import LikeButton from './LikeButton';
 
 function Tweet (props){
   const tweetBoxStyles = {
@@ -40,6 +40,7 @@ function Tweet (props){
         <p>{props.tweet}</p>
         </div>
         <p>Likes: {props.likes}</p>
+        <LikeButton />
       </div>
     </div>
   );
