@@ -35,7 +35,7 @@ function Tweet(props) {
         <img style={imgStyle} src={`${props.profilePic}`}></img>
       </div>
       <div style={tweetContentStyle}>
-        <p><strong>{props.name}</strong> @{props.username} - {props.formattedTweetTime}</p>
+        <p><strong>{props.name}</strong> @{props.username} ~ {props.formattedTweetTime} ago</p>
         <p>{props.tweet}</p>
       </div>
       <LikeButton
