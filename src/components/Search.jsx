@@ -17,12 +17,6 @@ const searchStyles = {
 function Search(props){
   let _search = null;
 
-  // function handleSearchFormSubmission(event){
-  //   event.preventDefault();
-  //
-  //   console.log('search', _search.value);
-  // }
-
   return(
     <div>
       <form onSubmit={(e) => props.onSearch(_search.value, e)}>

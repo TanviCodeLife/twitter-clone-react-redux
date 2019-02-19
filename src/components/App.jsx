@@ -28,17 +28,21 @@ class App extends React.Component {
   }
 
   handleAddingAlikeToATweet(id){
-    this.setState({masterTweetList: this.state.masterTweetList.map((tweet) => {
-      if(tweet.id === id) {
-        tweet.likes++;
-      }
-      return tweet;
-    })});
+    this.setState((state) => {
+      masterTweetList: state.masterTweetList.map((tweet) => {
+        if(tweet.id === id){
+          tweet.likes++;
+        }
+        return tweet;
+      })
+    })
   }
 
   handleSearch(query, event){
-    event.preventDefault();
-    console.log(query, 'event', event);
+    // event.preventDefault();
+    // this.setState({masterTweetList: this.state.masterTweetList.filter((tweet) =>
+    //   tweet.tweet.includes(query);
+    // )});
   }
 
   render() {
