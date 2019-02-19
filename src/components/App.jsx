@@ -15,10 +15,12 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      masterTweetList: []
+      masterTweetList: [],
+      query: ""
     };
     this.handleAddingNewTweetToList = this.handleAddingNewTweetToList.bind(this);
     this.handleAddingAlikeToATweet = this.handleAddingAlikeToATweet.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   handleAddingNewTweetToList(newTweet){
@@ -38,11 +40,15 @@ class App extends React.Component {
     })
   }
 
-  handleSearch(query, event){
-    // event.preventDefault();
-    // this.setState({masterTweetList: this.state.masterTweetList.filter((tweet) =>
-    //   tweet.tweet.includes(query);
-    // )});
+  handleSearch(query, event) {
+    event.preventDefault();
+    this.setState({query: query});
+  }
+
+  filterTweets(array) {
+    return array.filter((tweet) => {
+      return tweet.tweet.includes(this.state.query);
+    });
   }
 
   render() {
@@ -53,7 +59,7 @@ class App extends React.Component {
         </div>
         <div style={bodyStyle}>
           <Bio/>
-          <TweetList onLikeButtonClick={this.handleAddingAlikeToATweet} tweetList={this.state.masterTweetList}/>
+          <TweetList onLikeButtonClick={this.handleAddingAlikeToATweet} tweetList={this.filterTweets(this.state.masterTweetList)}/>
           <RecommendedList/>
         </div>
       </div>
