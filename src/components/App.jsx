@@ -27,8 +27,9 @@ class App extends React.Component {
     this.setState({masterTweetList: newMasterTweetList});
   }
 
-  handleAddingAlikeToATweet(tweet){
-    console.log(tweet)
+  handleAddingAlikeToATweet(){
+    console.log("in app")
+
   }
 
 

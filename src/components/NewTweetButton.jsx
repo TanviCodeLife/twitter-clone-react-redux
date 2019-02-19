@@ -14,7 +14,6 @@ const buttonStyles ={
 };
 
 function NewTweetButton(props){
-
   return(
     <div>
       <button onClick={props.onNewTweetConfirmation} style={buttonStyles}>New Tweet</button>

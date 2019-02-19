@@ -39,11 +39,13 @@ class Tweet extends React.Component {
   }
 
   handleLikeButton(){
-    props.onLikeButtonClick();
+    this.props.onLikeButtonClick;
   }
 
-render(){
 
+
+render(){
+  console.log(this.props);
   return (
     <div style={tweetBoxStyles}>
       <div style={profilePicStyle}>
