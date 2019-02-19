@@ -55,7 +55,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} onSearch={this.handleSearch} />}
+          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} onSearch={this.handleSearch} />
         </div>
         <div style={bodyStyle}>
           <Bio/>
