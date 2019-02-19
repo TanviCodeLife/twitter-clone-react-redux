@@ -20,6 +20,7 @@ function TweetList(props){
           profilePic = {tweet.profilePic}
           likes={tweet.likes}
           id={tweet.id}
+          formattedTweetTime={tweet.formattedTweetTime}
           key={tweet.id}/>
       )}
     </div>

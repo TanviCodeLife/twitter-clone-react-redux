@@ -35,7 +35,7 @@ function Tweet(props) {
         <img style={imgStyle} src={`${props.profilePic}`}></img>
       </div>
       <div style={tweetContentStyle}>
-        <p><strong>{props.name}</strong> @{props.username}</p>
+        <p><strong>{props.name}</strong> @{props.username} - {props.formattedTweetTime}</p>
         <p>{props.tweet}</p>
       </div>
       <LikeButton
@@ -46,6 +46,7 @@ function Tweet(props) {
   );
 }
 
+
 Tweet.propTypes = {
   name: PropTypes.string,
   username: PropTypes.string,
@@ -53,6 +54,7 @@ Tweet.propTypes = {
   profilePic: PropTypes.string,
   likes: PropTypes.number,
   id: PropTypes.string,
+  formattedTweetTime: PropTypes.string,
   onLikeButtonClick: PropTypes.func
 };
 
