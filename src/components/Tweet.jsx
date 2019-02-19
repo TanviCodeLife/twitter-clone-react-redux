@@ -15,7 +15,7 @@ const imgStyle = {
   width: '40px',
   border: '3px solid lightgrey',
   borderRadius: '25rem',
-}
+};
 
 const profilePicStyle = {
   height: '30px',
@@ -28,45 +28,32 @@ const tweetContentStyle = {
   paddingBottom: '3px'
 };
 
-class Tweet extends React.Component {
-
-  constructor(props){
-    super(props);
-    this.state ={
-      updateLikeButton: false
-    }
-    this.handleLikeButton = this.handleLikeButton.bind(this);
-  }
-
-  handleLikeButton(){
-    this.props.onLikeButtonClick;
-  }
-
-
-
-render(){
-  console.log(this.props);
+function Tweet(props) {
   return (
     <div style={tweetBoxStyles}>
       <div style={profilePicStyle}>
-        <img style={imgStyle} src={`${this.props.profilePic}`}></img>
+        <img style={imgStyle} src={`${props.profilePic}`}></img>
       </div>
       <div style={tweetContentStyle}>
-        <p><strong>{this.props.name}</strong> @{this.props.username}</p>
-        <p>{this.props.tweet}</p>
+        <p><strong>{props.name}</strong> @{props.username}</p>
+        <p>{props.tweet}</p>
       </div>
-      <LikeButton onLikeButtonClick={this.handleLikeButton}/>
-      <p>{this.props.likes}</p>
+      <LikeButton
+        id={props.id}
+        onLikeButtonClick={props.onLikeButtonClick}/>
+      <p>{props.likes}</p>
     </div>
   );
-}
 }
 
 Tweet.propTypes = {
   name: PropTypes.string,
   username: PropTypes.string,
   tweet: PropTypes.string,
-  profilePic: PropTypes.string
+  profilePic: PropTypes.string,
+  likes: PropTypes.number,
+  id: PropTypes.string,
+  onLikeButtonClick: PropTypes.func
 };
 
 export default Tweet;

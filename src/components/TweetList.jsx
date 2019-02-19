@@ -10,8 +10,6 @@ const tweetListStyles = {
 };
 
 function TweetList(props){
-  console.log(props)
-
   return(
     <div style={tweetListStyles}>
       {props.tweetList.map((tweet) =>
@@ -29,7 +27,8 @@ function TweetList(props){
 }
 
 TweetList.propTypes = {
-  tweetList: PropTypes.array
+  tweetList: PropTypes.array,
+  onLikeButtonClick: PropTypes.func
 };
 
 export default TweetList;

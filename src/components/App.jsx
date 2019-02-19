@@ -22,16 +22,19 @@ class App extends React.Component {
   }
 
   handleAddingNewTweetToList(newTweet){
-    let newMasterTweetList = this.state.masterTweetList.slice();
-    newMasterTweetList.push(newTweet);
-    this.setState({masterTweetList: newMasterTweetList});
+    this.setState((state) => {
+      return {masterTweetList: state.masterTweetList.concat([newTweet])};
+    });
   }
 
-  handleAddingAlikeToATweet(){
-    console.log("in app")
-
+  handleAddingAlikeToATweet(id){
+    this.setState({masterTweetList: this.state.masterTweetList.map((tweet) => {
+      if(tweet.id === id) {
+        tweet.likes++;
+      }
+      return tweet;
+    })});
   }
-
 
   render() {
     return (

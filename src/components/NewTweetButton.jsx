@@ -23,6 +23,6 @@ function NewTweetButton(props){
 
 NewTweetButton.propTypes = {
   onNewTweetConfirmation: PropTypes.func
-}
+};
 
 export default NewTweetButton;

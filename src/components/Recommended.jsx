@@ -16,7 +16,7 @@ function Recommended(props){
     width: '40px',
     border: '3px solid lightgrey',
     borderRadius: '25rem',
-  }
+  };
 
   const profilePicStyle = {
     height: '30px',
@@ -27,7 +27,7 @@ function Recommended(props){
   const tweetContentStyle = {
     margin: '-45px 5px 0px 60px',
     // paddingBottom: '3px'
-  }
+  };
 
   const followButton ={
     margin: '-200px 0px 5px 60px',
@@ -50,7 +50,7 @@ function Recommended(props){
           <img style={imgStyle} src={`${props.profilePic}`}></img>
         </div>
         <div style={tweetContentStyle}>
-        <p><strong>{props.name}</strong> @{props.username}</p>
+          <p><strong>{props.name}</strong> @{props.username}</p>
         </div>
         <div>
           <button style={followButton}>Follow</button>

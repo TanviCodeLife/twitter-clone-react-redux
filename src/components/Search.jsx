@@ -21,14 +21,14 @@ function Search(props){
   return(
     <div>
       <form onSubmit={handleSearchFormSubmission}>
-      <input
-        type='text'
-        id='search'
-        style={searchStyles}
-        placeholder='Search'
-        ref={(input) => {_search = input;}}/>
+        <input
+          type='text'
+          id='search'
+          style={searchStyles}
+          placeholder='Search'
+          ref={(input) => {_search = input;}}/>
       </form>
-  </div>
+    </div>
   );
 }
 
