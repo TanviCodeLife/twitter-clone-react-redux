@@ -51,7 +51,7 @@ class NavBarControl extends React.Component {
       <div style={navbarStyles}>
         <NavList/>
         <div style={rightStyles}>
-          <Search/>
+          <Search onSearch={this.props.onSearch}/>
           {currentlyVisibleContent}
         </div>
       </div>
@@ -60,7 +60,8 @@ class NavBarControl extends React.Component {
 }
 
 NavBarControl.propTypes = {
-  onNewTweetCreation: PropTypes.func
+  onNewTweetCreation: PropTypes.func,
+  onSearch: PropTypes.func
 };
 
 export default NavBarControl;

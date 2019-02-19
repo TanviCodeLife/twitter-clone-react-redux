@@ -36,11 +36,16 @@ class App extends React.Component {
     })});
   }
 
+  handleSearch(query, event){
+    event.preventDefault();
+    console.log(query, 'event', event);
+  }
+
   render() {
     return (
       <div>
         <div>
-          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} />}
+          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} onSearch={this.handleSearch} />}
         </div>
         <div style={bodyStyle}>
           <Bio/>
