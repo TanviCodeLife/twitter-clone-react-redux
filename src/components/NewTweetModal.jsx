@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 import Moment from 'moment';
+import { connect } from 'react-redux';
 
 const modal = {
   position: 'fixed',
@@ -23,10 +24,23 @@ const modalMain = {
 };
 
 function NewTweetModal(props){
+
   let _tweet = null;
 
   function handleNewTweetFormSubmission(event){
     event.preventDefault();
+    const { dispatch } = props;
+    const action = {
+      type: 'ADD_TWEET',
+      tweet: _tweet.value,
+      id: v4(),
+      name: 'Paige Williams',
+      username: 'p__williams',
+      profilePic: 'https://avatars3.githubusercontent.com/u/26071756?s=460&v=4',
+      likes: 0,
+      timeTweet: new Moment()
+    };
+    dispatch(action);
     props.onNewTweetCreation({tweet: _tweet.value,
       id: v4(),
       name: 'Paige Williams',
@@ -57,4 +71,4 @@ NewTweetModal.propTypes = {
   onNewTweetCreation: PropTypes.func,
   onHideModal: PropTypes.func
 };
-export default NewTweetModal;
+export default connect()(NewTweetModal);
