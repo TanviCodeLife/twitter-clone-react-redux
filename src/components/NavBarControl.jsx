@@ -42,7 +42,7 @@ class NavBarControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if(this.state.modalVisibleOnPage){
-      currentlyVisibleContent = <NewTweetModal onNewTweetCreation={this.props.onNewTweetCreation}
+      currentlyVisibleContent = <NewTweetModal
         onHideModal={this.handleHideModal} />;
     } else {
       currentlyVisibleContent = <NewTweetButton onNewTweetConfirmation={this.handleNewTweet} />;
@@ -60,7 +60,6 @@ class NavBarControl extends React.Component {
 }
 
 NavBarControl.propTypes = {
-  onNewTweetCreation: PropTypes.func,
   onSearch: PropTypes.func
 };
 
