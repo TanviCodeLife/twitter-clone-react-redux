@@ -35,7 +35,6 @@ class App extends React.Component {
   }
 
   updateTweetTime(){
-    console.log('tweetTime');
     let newMasterTweetList = this.state.masterTweetList.slice();
     newMasterTweetList.forEach((tweet) =>
       tweet.formattedTweetTime = (tweet.timeTweet).fromNow(true)
