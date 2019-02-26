@@ -18,7 +18,6 @@ class App extends React.Component {
       masterTweetList: [],
       query: ''
     };
-    this.handleAddingNewTweetToList = this.handleAddingNewTweetToList.bind(this);
     this.handleAddingAlikeToATweet = this.handleAddingAlikeToATweet.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -40,13 +39,6 @@ class App extends React.Component {
       tweet.formattedTweetTime = (tweet.timeTweet).fromNow(true)
     );
     this.setState({masterTweetList: newMasterTweetList});
-  }
-
-  handleAddingNewTweetToList(newTweet){
-    newTweet.formattedTweetTime = (newTweet.timeTweet).fromNow(true);
-    this.setState((state) => {
-      return {masterTweetList: state.masterTweetList.concat([newTweet])};
-    });
   }
 
   handleAddingAlikeToATweet(id){
@@ -75,7 +67,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <NavBarControl onNewTweetCreation={this.handleAddingNewTweetToList} onSearch={this.handleSearch} />
+          <NavBarControl onSearch={this.handleSearch} />
         </div>
         <div style={bodyStyle}>
           <Bio/>
