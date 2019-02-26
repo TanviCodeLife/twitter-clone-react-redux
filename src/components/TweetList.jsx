@@ -12,23 +12,25 @@ const tweetListStyles = {
 function TweetList(props){
   return(
     <div style={tweetListStyles}>
-      {props.tweetList.map((tweet) =>
-        <Tweet onLikeButtonClick={props.onLikeButtonClick}
-          tweet={tweet.tweet}
-          name = {tweet.name}
-          username = {tweet.username}
-          profilePic = {tweet.profilePic}
-          likes={tweet.likes}
-          id={tweet.id}
-          formattedTweetTime={tweet.formattedTweetTime}
-          key={tweet.id}/>
-      )}
+      {Object.keys(props.tweetList). map(function(tweetId) {
+        const tweet = props.tweetList[tweetId];
+        return <Tweet onLikeButtonClick={props.onLikeButtonClick}
+        tweet={tweet.tweet}
+        name = {tweet.name}
+        username = {tweet.username}
+        profilePic = {tweet.profilePic}
+        likes={tweet.likes}
+        id={tweet.id}
+        formattedTweetTime={tweet.formattedTweetTime}
+        key={tweet.id}/>
+      })}
+
     </div>
   );
 }
 
 TweetList.propTypes = {
-  tweetList: PropTypes.array,
+  tweetList: PropTypes.object,
   onLikeButtonClick: PropTypes.func
 };
 
