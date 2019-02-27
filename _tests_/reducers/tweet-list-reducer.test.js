@@ -58,6 +58,27 @@ describe('tweetListReducer', () => {
         likes: 1,
         timeTweet: timeTweet
       }
+    });
+  });
+
+  test('should add a latest Moment-formatted tweet time to each tweet', () => {
+    const { tweet, id, name, username, profilePic, likes, timeTweet } = sampleTweetData;
+    action = {
+      type: 'UPDATE_TIME',
+      formattedTweetTime: '4 minutes',
+      id: id
+    };
+    expect(tweetListReducer({ [id] : sampleTweetData}, action)).toEqual({
+      [id] : {
+        tweet: tweet,
+        id: id,
+        name: name,
+        username: username,
+        profilePic: profilePic,
+        likes: 0,
+        timeTweet: timeTweet,
+        formattedTweetTime: '4 minutes'
+      }
     })
   })
 
