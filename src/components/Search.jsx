@@ -16,7 +16,6 @@ const searchStyles = {
 };
 
 function Search(props){
-  console.log(props);
   let _search = null
 
   const handleSearchQuery = (query, event) => {
@@ -42,8 +41,6 @@ function Search(props){
   );
 }
 
-Search.propTypes ={
-  onSearch: PropTypes.func
-};
+
 
 export default connect()(Search);

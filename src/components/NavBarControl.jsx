@@ -51,7 +51,7 @@ class NavBarControl extends React.Component {
       <div style={navbarStyles}>
         <NavList/>
         <div style={rightStyles}>
-          <Search onSearch={this.props.onSearch}/>
+          <Search/>
           {currentlyVisibleContent}
         </div>
       </div>

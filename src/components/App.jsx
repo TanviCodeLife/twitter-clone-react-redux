@@ -47,10 +47,6 @@ class App extends React.Component {
     })
   }
 
-  handleSearch(query, event) {
-    event.preventDefault();
-    this.setState({query: query});
-  }
 
   filterTweets(array) {
     return array.filter((tweet) => {
@@ -62,7 +58,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <NavBarControl onSearch={this.handleSearch} />
+          <NavBarControl/>
         </div>
         <div style={bodyStyle}>
           <Bio/>
