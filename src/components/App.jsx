@@ -22,24 +22,30 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  // componentDidMount(){
-  //   this.tweetTimeUpdateTime = setInterval(() =>
-  //     this.updateTweetTime(),
-  //   6000
-  //   );
-  // }
+  componentDidMount(){
+    this.tweetTimeUpdateTime = setInterval(() =>
+      this.updateTweetTime(),
+      6000
+    );
+  }
 
   componentWillUnmount() {
     clearInterval(this.tweetTimeUpdateTime);
   }
 
-  // updateTweetTime(){
-  //   let newMasterTweetList = this.state.masterTweetList.slice();
-  //   newMasterTweetList.forEach((tweet) =>
-  //     tweet.formattedTweetTime = (tweet.timeTweet).fromNow(true)
-  //   );
-  //   this.setState({masterTweetList: newMasterTweetList});
-  // }
+  updateTweetTime(){
+    const { dispatch } = this.props;
+    Object.keys(this.props.masterTweetList).map(tweetId => {
+      const tweet = this.props.masterTweetList[tweetId];
+      const newFormattedTweetTime = tweet.timeTweet.fromNow(true);
+      const action = {
+        type: 'UPDATE_TIME',
+        id: tweetId,
+        formattedTweetTime: newFormattedTweetTime
+      };
+      dispatch(action)
+    })
+  }
 
   handleSearch(query, event) {
     event.preventDefault();
