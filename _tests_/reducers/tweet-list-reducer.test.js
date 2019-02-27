@@ -41,4 +41,24 @@ describe('tweetListReducer', () => {
     })
   })
 
+  test('should add a like to a tweet', () => {
+  const { tweet, id, name, username, profilePic, likes, timeTweet } = sampleTweetData;
+  action = {
+    type: 'ADD_LIKE',
+    id: id,
+    likes: 1
+  }
+    expect(tweetListReducer({ [id] : sampleTweetData }, action)).toEqual({
+      [id] : {
+        tweet: tweet,
+        id: id,
+        name: name,
+        username: username,
+        profilePic: profilePic,
+        likes: 1,
+        timeTweet: timeTweet
+      }
+    })
+  })
+
 });

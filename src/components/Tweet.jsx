@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import LikeButton from './LikeButton';
+import { connect } from 'react-redux';
 
 const tweetBoxStyles = {
   border: 'none',
@@ -29,6 +30,22 @@ const tweetContentStyle = {
 };
 
 function Tweet(props) {
+  let action;
+
+  const handleAddingLikeToTweet = () => {
+    console.log('handlingAddingLikeToTweet');
+    console.log(props);
+    const { dispatch } = props;
+    const newLikes = props.likes + 1;
+    action = {
+      type: 'ADD_LIKE',
+      id: props.id,
+      likes: newLikes
+    }
+    dispatch(action);
+  }
+
+
   return (
     <div style={tweetBoxStyles}>
       <div style={profilePicStyle}>
@@ -39,8 +56,7 @@ function Tweet(props) {
         <p>{props.tweet}</p>
       </div>
       <LikeButton
-        id={props.id}
-        onLikeButtonClick={props.onLikeButtonClick}/>
+        onLikeButtonClick={handleAddingLikeToTweet}/>
       <p>{props.likes}</p>
     </div>
   );
@@ -58,4 +74,5 @@ Tweet.propTypes = {
   onLikeButtonClick: PropTypes.func
 };
 
-export default Tweet;
+
+export default connect()(Tweet);
