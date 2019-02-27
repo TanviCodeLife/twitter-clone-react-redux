@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const searchStyles = {
   border: '2px solid #4682B4',
@@ -15,11 +16,22 @@ const searchStyles = {
 };
 
 function Search(props){
-  let _search = null;
+  console.log(props);
+  let _search = null
+
+  const handleSearchQuery = (query, event) => {
+    event.preventDefault();
+    const { dispatch } = props;
+    const action = {
+      type: 'SEARCH_QUERY',
+      query: query
+    };
+    dispatch(action);
+  }
 
   return(
     <div>
-      <form onSubmit={(e) => props.onSearch(_search.value, e)}>
+      <form onSubmit={(event) => handleSearchQuery(_search.value, event)}>
         <input
           type='text'
           style={searchStyles}
@@ -34,4 +46,4 @@ Search.propTypes ={
   onSearch: PropTypes.func
 };
 
-export default Search;
+export default connect()(Search);
