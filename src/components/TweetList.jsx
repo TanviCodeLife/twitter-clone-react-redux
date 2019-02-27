@@ -14,7 +14,7 @@ function TweetList(props){
     <div style={tweetListStyles}>
       {Object.keys(props.tweetList). map(function(tweetId) {
         const tweet = props.tweetList[tweetId];
-        return <Tweet onLikeButtonClick={props.onLikeButtonClick}
+        return <Tweet
         tweet={tweet.tweet}
         name = {tweet.name}
         username = {tweet.username}
@@ -31,7 +31,6 @@ function TweetList(props){
 
 TweetList.propTypes = {
   tweetList: PropTypes.object,
-  onLikeButtonClick: PropTypes.func
 };
 
 export default TweetList;

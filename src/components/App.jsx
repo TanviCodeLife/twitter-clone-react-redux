@@ -19,7 +19,6 @@ class App extends React.Component {
     this.state = {
       query: ''
     };
-    this.handleAddingAlikeToATweet = this.handleAddingAlikeToATweet.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
   }
 
@@ -42,17 +41,6 @@ class App extends React.Component {
   //   this.setState({masterTweetList: newMasterTweetList});
   // }
 
-  handleAddingAlikeToATweet(id){
-    this.setState((state) => {
-      masterTweetList: state.masterTweetList.map((tweet) => {
-        if(tweet.id === id){
-          tweet.likes++;
-        }
-        return tweet;
-      });
-    });
-  }
-
   handleSearch(query, event) {
     event.preventDefault();
     this.setState({query: query});
@@ -72,7 +60,7 @@ class App extends React.Component {
         </div>
         <div style={bodyStyle}>
           <Bio/>
-          <TweetList onLikeButtonClick={this.handleAddingAlikeToATweet} tweetList={this.props.masterTweetList}/>
+          <TweetList  tweetList={this.props.masterTweetList}/>
           <RecommendedList/>
         </div>
       </div>

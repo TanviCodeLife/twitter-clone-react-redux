@@ -30,21 +30,17 @@ const tweetContentStyle = {
 };
 
 function Tweet(props) {
-  let action;
 
   const handleAddingLikeToTweet = () => {
-    console.log('handlingAddingLikeToTweet');
-    console.log(props);
     const { dispatch } = props;
     const newLikes = props.likes + 1;
-    action = {
+    let action = {
       type: 'ADD_LIKE',
       id: props.id,
       likes: newLikes
     }
     dispatch(action);
   }
-
 
   return (
     <div style={tweetBoxStyles}>
@@ -71,7 +67,6 @@ Tweet.propTypes = {
   likes: PropTypes.number,
   id: PropTypes.string,
   formattedTweetTime: PropTypes.string,
-  onLikeButtonClick: PropTypes.func
 };
 
 
