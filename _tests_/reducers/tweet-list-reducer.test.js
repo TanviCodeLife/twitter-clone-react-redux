@@ -1,4 +1,5 @@
 import tweetListReducer from './../../src/reducers/tweet-list-reducer';
+import Moment from 'moment';
 
 describe('tweetListReducer', () => {
   let action;
@@ -78,6 +79,33 @@ describe('tweetListReducer', () => {
         likes: 0,
         timeTweet: timeTweet,
         formattedTweetTime: '4 minutes'
+      }
+    })
+  })
+
+  test('new tweet should include Moment-formatted wait times', () => {
+    const { tweet, id, name, username, profilePic, likes, timeTweet } = sampleTweetData;
+    action = {
+      type: 'ADD_TWEET',
+      tweet: tweet,
+      id: id,
+      name: name,
+      username: username,
+      profilePic: profilePic,
+      likes: likes,
+      timeTweet: timeTweet,
+      formattedTweetTime: new Moment().fromNow(true)
+    };
+    expect(tweetListReducer({}, action)).toEqual({
+      [id] : {
+        tweet: tweet,
+        id: id,
+        name: name,
+        username: username,
+        profilePic: profilePic,
+        likes: 0,
+        timeTweet: timeTweet,
+        formattedTweetTime: 'a few seconds'
       }
     })
   })

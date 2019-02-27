@@ -38,7 +38,8 @@ function NewTweetModal(props){
       username: 'p__williams',
       profilePic: 'https://avatars3.githubusercontent.com/u/26071756?s=460&v=4',
       likes: 0,
-      timeTweet: new Moment()
+      timeTweet: new Moment(),
+      formattedTweetTime: new Moment().fromNow(true)
     };
     dispatch(action);
     props.onHideModal();

@@ -11,7 +11,8 @@ export default (state = {}, action) => {
           username: username,
           profilePic: profilePic,
           likes: likes,
-          timeTweet: timeTweet
+          timeTweet: timeTweet,
+          formattedTweetTime: formattedTweetTime
         }
       });
       return newState;
