@@ -19,7 +19,6 @@ class App extends React.Component {
     this.state = {
       query: ''
     };
-    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount(){
@@ -47,11 +46,14 @@ class App extends React.Component {
     })
   }
 
-
-  filterTweets(array) {
-    return array.filter((tweet) => {
-      return tweet.tweet.includes(this.state.query);
-    });
+  filterTweets(tweets) {
+    return Object.keys(tweets).reduce((all, tweetId) => {
+      const tweet = tweets[tweetId];
+       if(tweet.tweet.includes(this.props.query)) {
+         all[tweetId] = tweet;
+       }
+       return all;
+    }, {});
   }
 
   render() {
@@ -62,7 +64,7 @@ class App extends React.Component {
         </div>
         <div style={bodyStyle}>
           <Bio/>
-          <TweetList  tweetList={this.props.masterTweetList}/>
+          <TweetList tweetList={this.filterTweets(this.props.masterTweetList)}/>
           <RecommendedList/>
         </div>
       </div>
@@ -72,8 +74,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    masterTweetList: state.masterTweetList
-
+    masterTweetList: state.masterTweetList,
+    query: state.query
   }
 }
 

@@ -12,7 +12,7 @@ const tweetListStyles = {
 function TweetList(props){
   return(
     <div style={tweetListStyles}>
-      {Object.keys(props.tweetList). map(function(tweetId) {
+      {Object.keys(props.tweetList).map(function(tweetId) {
         const tweet = props.tweetList[tweetId];
         return <Tweet
         tweet={tweet.tweet}
